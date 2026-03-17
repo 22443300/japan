@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan — Where the Ephemeral Becomes Eternal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #1a0a0f;
+  --ivory: #fdf6f0;
+  --blush: #f4a7b9;
+  --rose: #d4688a;
+  --gold: #e8c87a;
+  --lavender: #c9b8d4;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Cormorant Garamond', serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html {
+  scroll-behavior: smooth;
+  cursor: none;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ivory);
+  background: var(--ink);
+  line-height: 1.9;
+  overflow-x: hidden;
+  opacity: 0;
+  animation: siteLoad 0.8s ease 0.3s forwards;
+}
+
+@keyframes siteLoad {
+  to { opacity: 1; }
+}
+
+/* Custom Cursor */
+#custom-cursor {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 100000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  will-change: transform;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.4s var(--ease-smooth), backdrop-filter 0.4s var(--ease-smooth);
+}
+
+nav.scrolled {
+  background: rgba(26, 10, 15, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-logo {
+  font-family: var(--font-jp);
+  font-size: 1.4rem;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--blush);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-smooth);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-links a.active {
+  color: var(--blush);
+}
+
+/* Hero */
+#hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--ink);
+  overflow: hidden;
+}
+
+.petal-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.petal-container svg.petal {
+  position: absolute;
+  pointer-events: auto;
+  will-change: transform;
+  filter: blur(0.3px);
+  cursor: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-kanji {
+  font-family: var(--font-jp);
+  font-size: 15vw;
+  color: var(--gold);
+  line-height: 1;
+  opacity: 0;
+  animation: fadeInUp 1.5s var(--ease-smooth) 0.5s forwards;
+  position: relative;
+  display: inline-block;
+}
+
+.hero-kanji::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(232, 200, 122, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 8vw;
+  font-weight: 900;
+  color: var(--ivory);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeInUp 1.2s var(--ease-smooth) 0.8s forwards;
+  margin-top: -0.5rem;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--lavender);
+  letter-spacing: 0.1em;
+  opacity: 0;
+  animation: fadeInUp 1.2s var(--ease-smooth) 1.1s forwards;
+  margin-top: 1rem;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  opacity: 0;
+  animation: fadeInUp 1s var(--ease-smooth) 1.6s forwards;
+}
+
+.scroll-indicator .line {
+  width: 1px;
+  height: 50px;
+  background: var(--ivory);
+  margin: 0 auto;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
+  50% { opacity: 0.8; transform: scaleY(1); transform-origin: top; }
+}
+
+.scroll-indicator span {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  opacity: 0.5;
+  margin-top: 0.5rem;
+}
+
+/* Section common */
+.section-enter {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+}
+
+.section-enter.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section 1: Seasons */
+#seasons {
+  background: var(--ivory);
+  padding: 6rem 0;
+  color: var(--ink);
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.seasons-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 2rem;
+  padding: 0 3rem 2rem;
+  scrollbar-width: none;
+}
+
+.seasons-carousel::-webkit-scrollbar { display: none; }
+
+.season-card {
+  flex: 0 0 calc(25% - 1.5rem);
+  min-width: 280px;
+  height: 70vh;
+  border-radius: 8px;
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s var(--ease-smooth);
+  will-change: transform;
+}
+
+.season-card:hover {
+  transform: scale(1.03);
+}
+
+.season-card.spring { background: linear-gradient(135deg, #f9c4d2 0%, #fde68a 50%, #f9a8d4 100%); }
+.season-card.summer { background: linear-gradient(135deg, #065f46 0%, #0e7490 50%, #134e4a 100%); }
+.season-card.autumn { background: linear-gradient(135deg, #d97706 0%, #dc2626 50%, #92400e 100%); }
+.season-card.winter { background: linear-gradient(135deg, #93c5fd 0%, #e2e8f0 50%, #c7d2fe 100%); }
+
+.season-kanji {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-jp);
+  font-size: 12rem;
+  font-weight: 900;
+  color: rgba(26, 10, 15, 0.12);
+  transition: transform 0.5s var(--ease-smooth), color 0.5s var(--ease-smooth);
+  line-height: 1;
+}
+
+.season-card:hover .season-kanji {
+  transform: translate(-50%, -55%);
+  color: rgba(26, 10, 15, 0.25);
+}
+
+.season-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s var(--ease-smooth), transform 0.5s var(--ease-smooth);
+  background: linear-gradient(transparent, rgba(26, 10, 15, 0.5));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.season-card:hover .season-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.season-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--ivory);
+  margin-bottom: 0.5rem;
+}
+
+.season-info p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(253, 246, 240, 0.9);
+  line-height: 1.7;
+}
+
+/* Section 2: Culture */
+#culture {
+  background: var(--ink);
+  padding: 6rem 3rem;
+  color: var(--ivory);
+}
+
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.culture-cell {
+  border: 1px solid rgba(244, 167, 185, 0.2);
+  border-radius: 6px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.4s var(--ease-smooth), background 0.4s var(--ease-smooth);
+  opacity: 0;
+  transform: translateX(-40px);
+  will-change: transform, opacity;
+}
+
+.culture-cell:nth-child(even) {
+  transform: translateX(40px);
+}
+
+.culture-cell.visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth), box-shadow 0.4s var(--ease-smooth), background 0.4s var(--ease-smooth);
+}
+
+.culture-cell:nth-child(1) { grid-row: span 2; }
+.culture-cell:nth-child(4) { grid-row: span 2; }
+
+.culture-cell:hover {
+  box-shadow: 0 0 30px rgba(244, 167, 185, 0.15), inset 0 0 30px rgba(244, 167, 185, 0.03);
+  background: rgba(212, 104, 138, 0.08);
+}
+
+.culture-kanji {
+  font-family: var(--font-jp);
+  font-size: 4rem;
+  color: rgba(244, 167, 185, 0.25);
+  transition: transform 0.4s var(--ease-smooth);
+  display: inline-block;
+  line-height: 1;
+}
+
+.culture-cell:hover .culture-kanji {
+  transform: rotate(-3deg);
+}
+
+.culture-cell h3 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin: 0.8rem 0 0.6rem;
+}
+
+.culture-cell p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(253, 246, 240, 0.75);
+  line-height: 1.8;
+}
+
+/* Section 3: Places */
+#places {
+  background: var(--ivory);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.places-wrapper {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.places-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.places-sticky .section-label {
+  text-align: left;
+  color: var(--rose);
+}
+
+.place-name-display {
+  font-family: var(--font-display);
+  font-size: 7vw;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.place-name-text {
+  transition: opacity 0.4s var(--ease-smooth), transform 0.4s var(--ease-smooth);
+}
+
+.places-scroll {
+  width: 60%;
+  padding: 6rem 3rem;
+}
+
+.place-block {
+  min-height: 80vh;
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.place-illustration {
+  width: 100%;
+  height: 250px;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* CSS Art Illustrations */
+.illust-kyoto {
+  background: linear-gradient(180deg, #f9c4d2 0%, #fde68a 60%, #065f46 60%, #134e4a 100%);
+}
+
+.illust-kyoto::before {
+  content: '';
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 50px solid #3d1c1c;
+}
+
+.illust-kyoto::after {
+  content: '';
+  position: absolute;
+  bottom: calc(40% + 50px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-bottom: 40px solid #4a2020;
+}
+
+.pagoda-top {
+  position: absolute;
+  bottom: calc(40% + 90px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 35px solid #5a2828;
+}
+
+.pagoda-spire {
+  position: absolute;
+  bottom: calc(40% + 125px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 25px;
+  background: #5a2828;
+}
+
+.illust-tokyo {
+  background: linear-gradient(180deg, #1e1b4b 0%, #312e81 40%, #1a0a0f 100%);
+}
+
+.illust-tokyo::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 30px;
+  height: 70%;
+  background: linear-gradient(90deg, #6366f1, #818cf8);
+  border-radius: 2px 2px 0 0;
+  box-shadow: 40px 30px 0 0 #4f46e5, 80px 15px 0 5px #7c3aed, 120px 40px 0 0 #6366f1, 160px 10px 0 8px #4f46e5, 200px 25px 0 3px #7c3aed;
+}
+
+.illust-tokyo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 15%;
+  width: 8px;
+  height: 85%;
+  background: linear-gradient(0deg, #ef4444, #ef4444 30%, #f87171 30%, #f87171 32%, transparent 32%);
+  border-radius: 4px 4px 0 0;
+}
+
+.illust-nara {
+  background: linear-gradient(180deg, #fef3c7 0%, #d9f99d 50%, #065f46 100%);
+}
+
+.illust-nara::before {
+  content: '';
+  position: absolute;
+  bottom: 20%;
+  left: 40%;
+  width: 50px;
+  height: 60px;
+  background: #92400e;
+  border-radius: 50% 50% 0 0;
+  box-shadow: 15px -5px 0 0 #78350f;
+}
+
+.illust-nara::after {
+  content: '';
+  position: absolute;
+  bottom: 20%;
+  left: calc(40% - 5px);
+  width: 8px;
+  height: 40px;
+  background: #78350f;
+  transform: rotate(-10deg);
+  transform-origin: bottom;
+  box-shadow: 60px -5px 0 0 #78350f;
+}
+
+.illust-hakone {
+  background: linear-gradient(180deg, #bae6fd 0%, #e0f2fe 30%, #fdf6f0 30%);
+}
+
+.illust-hakone::before {
+  content: '';
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  border-bottom: 160px solid #4338ca;
+}
+
+.illust-hakone::after {
+  content: '';
+  position: absolute;
+  bottom: calc(20% + 120px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 40px solid #e2e8f0;
+}
+
+.illust-okinawa {
+  background: linear-gradient(180deg, #06b6d4 0%, #22d3ee 40%, #fde68a 40%, #fde68a 50%, #0891b2 50%, #0e7490 100%);
+}
+
+.illust-okinawa::before {
+  content: '';
+  position: absolute;
+  bottom: 50%;
+  left: 10%;
+  width: 200px;
+  height: 8px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  box-shadow: 40px -12px 0 2px rgba(255,255,255,0.2), -20px -8px 0 1px rgba(255,255,255,0.25);
+}
+
+.place-block h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+
+.place-block p {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: rgba(26, 10, 15, 0.75);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+.discover-link {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--rose);
+  text-decoration: none;
+  position: relative;
+  letter-spacing: 0.1em;
+  padding-bottom: 4px;
+}
+
+.discover-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  height: 1.5px;
+  background: var(--blush);
+  transform: translateX(-50%) scaleX(0);
+  transition: transform 0.4s var(--ease-smooth);
+}
+
+.discover-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Section 4: Spirit / Parallax */
+#spirit {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #1e1b4b 0%, #0f0a1a 50%, #000000 100%);
+  will-change: transform;
+}
+
+.torii-gate {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  will-change: transform;
+}
+
+.torii-top {
+  width: 280px;
+  height: 16px;
+  background: #1a0a0f;
+  border-radius: 3px;
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(244, 167, 185, 0.1);
+}
+
+.torii-top::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: -20px;
+  right: -20px;
+  height: 12px;
+  background: #1a0a0f;
+  border-radius: 50% 50% 0 0;
+  transform: scaleY(1.5);
+}
+
+.torii-beam {
+  width: 240px;
+  height: 10px;
+  background: #1a0a0f;
+  margin: 14px auto 0;
+}
+
+.torii-pillar-left,
+.torii-pillar-right {
+  position: absolute;
+  top: 40px;
+  width: 18px;
+  height: 180px;
+  background: #1a0a0f;
+}
+
+.torii-pillar-left { left: 40px; }
+.torii-pillar-right { right: 40px; }
+
+.spirit-petals {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.spirit-text {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+}
+
+.spirit-text p {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 3vw;
+  color: var(--ivory);
+  letter-spacing: 0.08em;
+  line-height: 2;
+}
+
+/* Section 5: Gallery */
+#gallery {
+  background: var(--ink);
+  padding: 6rem 3rem;
+  color: var(--ivory);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 180px);
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-cell {
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+  transition: transform 0.4s var(--ease-smooth), filter 0.4s var(--ease-smooth);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.gallery-cell.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-cell:hover {
+  transform: scale(1.05);
+  filter: brightness(1.15);
+  box-shadow: 0 0 0 2px var(--gold);
+  z-index: 2;
+}
+
+.gallery-label {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s, transform 0.3s;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+}
+
+.gallery-cell:hover .gallery-label { opacity: 1; transform: translateY(0); }
+
+.gallery-cell:nth-child(1) { grid-column: span 2; grid-row: span 2; background: linear-gradient(135deg, #f9c4d2, #f4a7b9, #d4688a); }
+.gallery-cell:nth-child(2) { background: linear-gradient(180deg, #bae6fd, #e2e8f0 60%, #4338ca 60%); }
+.gallery-cell:nth-child(3) { grid-row: span 2; background: linear-gradient(180deg, #065f46, #10b981 50%, #065f46 51%, #064e3b); }
+.gallery-cell:nth-child(4) { background: linear-gradient(135deg, #fde68a, #f59e0b); }
+.gallery-cell:nth-child(5) { grid-column: span 2; background: linear-gradient(90deg, #0e7490, #06b6d4, #22d3ee); }
+.gallery-cell:nth-child(6) { background: radial-gradient(circle at 30% 60%, #ef4444 20%, #fde68a 20%, #fde68a 22%, #1a0a0f 22%); }
+.gallery-cell:nth-child(7) { grid-column: span 2; background: linear-gradient(180deg, #312e81, #1e1b4b); }
+.gallery-cell:nth-child(8) { background: linear-gradient(135deg, #c9b8d4, #d4688a); }
+.gallery-cell:nth-child(9) { background: repeating-linear-gradient(90deg, #065f46 0px, #065f46 8px, #10b981 8px, #10b981 14px); }
+.gallery-cell:nth-child(10) { grid-column: span 2; background: linear-gradient(135deg, #1a0a0f, #312e81, #1a0a0f); }
+.gallery-cell:nth-child(11) { background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 40%, #ef4444 100%); }
+.gallery-cell:nth-child(12) { background: radial-gradient(ellipse at center, #f4a7b9 30%, #d4688a 60%, #1a0a0f 100%); }
+
+/* Koi fish in gallery cell 6 */
+.gallery-cell:nth-child(6)::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 50px;
+  height: 25px;
+  background: #ef4444;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform: translateX(-50%) rotate(-15deg);
+}
+
+/* Bamboo stripes in cell 9 */
+.gallery-cell:nth-child(9)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 14px);
+}
+
+/* Stars in night sky cell 7 */
+.gallery-cell:nth-child(7)::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    40px 20px 0 0 rgba(255,255,255,0.7),
+    100px -10px 0 1px rgba(255,255,255,0.5),
+    160px 30px 0 0 rgba(255,255,255,0.6),
+    200px -5px 0 1px rgba(255,255,255,0.4),
+    260px 25px 0 0 rgba(255,255,255,0.7),
+    80px 40px 0 0 rgba(255,255,255,0.3);
+}
+
+/* Lantern in cell 4 */
+.gallery-cell:nth-child(4)::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 45px;
+  background: #ef4444;
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(239,68,68,0.4);
+}
+
+.gallery-cell:nth-child(4)::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 15px;
+  background: #78350f;
+}
+
+/* Footer */
+footer {
+  background: var(--ink);
+  padding: 5rem 3rem 3rem;
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 3rem;
+  right: 3rem;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.4;
+}
+
+.footer-kanji {
+  font-family: var(--font-jp);
+  font-size: 8rem;
+  color: var(--blush);
+  text-align: center;
+  line-height: 1;
+  opacity: 0.6;
+  animation: footerPulse 4s ease-in-out infinite;
+}
+
+@keyframes footerPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+.footer-tagline {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--lavender);
+  text-align: center;
+  margin: 1rem 0 3rem;
+  letter-spacing: 0.05em;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-col h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+  color: rgba(253, 246, 240, 0.6);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: var(--blush);
+}
+
+.footer-col p {
+  color: rgba(253, 246, 240, 0.6);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.footer-col .jp-quote {
+  font-family: var(--font-jp);
+  font-size: 1.1rem;
+  color: var(--blush);
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+.newsletter-field {
+  display: flex;
+  gap: 0;
+  margin-top: 0.5rem;
+}
+
+.newsletter-field input {
+  flex: 1;
+  background: rgba(253, 246, 240, 0.05);
+  border: 1px solid rgba(244, 167, 185, 0.2);
+  border-right: none;
+  padding: 0.7rem 1rem;
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.newsletter-field input:focus {
+  border-color: var(--blush);
+}
+
+.newsletter-field button {
+  background: var(--rose);
+  color: var(--ivory);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: none;
+  border-radius: 0 4px 4px 0;
+  transition: background 0.3s;
+}
+
+.newsletter-field button:hover {
+  background: var(--blush);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(253, 246, 240, 0.05);
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+  color: rgba(253, 246, 240, 0.3);
+  letter-spacing: 0.1em;
+}
+
+/* Footer petal silhouettes */
+.footer-petal {
+  position: absolute;
+  opacity: 0.06;
+  fill: var(--blush);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .culture-grid { grid-template-columns: repeat(2, 1fr); }
+  .culture-cell:nth-child(1),
+  .culture-cell:nth-child(4) { grid-row: span 1; }
+  .places-wrapper { flex-direction: column; }
+  .places-sticky { position: relative; width: 100%; height: auto; padding: 3rem 3rem 1rem; }
+  .places-scroll { width: 100%; }
+  .place-name-display { font-size: 12vw; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.2rem; }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 0.15em; }
+  .hero-title { font-size: 12vw; }
+  .season-card { flex: 0 0 85%; }
+  .culture-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(6, 150px); }
+  .gallery-cell:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+  .gallery-cell:nth-child(3) { grid-row: span 1; }
+  .gallery-cell:nth-child(5) { grid-column: span 1; }
+  .gallery-cell:nth-child(7) { grid-column: span 1; }
+  .gallery-cell:nth-child(10) { grid-column: span 1; }
+  .spirit-text p { font-size: 5vw; }
+}
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="custom-cursor">
+  <svg viewBox="0 0 24 24" width="24" height="24">
+    <path d="M12 2C8 2 5 6 5 10C5 14 12 22 12 22C12 22 19 14 19 10C19 6 16 2 12 2Z" fill="#f4a7b9" opacity="0.8"/>
+    <path d="M12 4C9 4 7 7 7 10C7 13 12 19 12 19C12 19 17 13 17 10C17 7 15 4 12 4Z" fill="#fdf6f0" opacity="0.4"/>
+  </svg>
+</div>
+
+<!-- Navigation -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-logo">桜 Japan</a>
+  <ul class="nav-links">
+    <li><a href="#seasons" data-section="seasons">Seasons</a></li>
+    <li><a href="#culture" data-section="culture">Culture</a></li>
+    <li><a href="#places" data-section="places">Places</a></li>
+    <li><a href="#spirit" data-section="spirit">Spirit</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero">
+  <div class="petal-container" id="hero-petals"></div>
+  <div class="hero-content">
+    <div class="hero-kanji">桜</div>
+    <h1 class="hero-title">Japan</h1>
+    <p class="hero-subtitle">Where the ephemeral becomes eternal.</p>
+  </div>
+  <div class="scroll-indicator">
+    <div class="line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- Section 1: The Seasons -->
+<section id="seasons" class="section-enter">
+  <p class="section-label" style="color: var(--rose);">Discover</p>
+  <h2 class="section-heading" style="color: var(--ink);">The Seasons</h2>
+  <div class="seasons-carousel">
+    <div class="season-card spring">
+      <div class="season-kanji">春</div>
+      <div class="season-info">
+        <h3>Spring</h3>
+        <p>Cherry blossoms paint the archipelago in fleeting waves of pink, as hanami gatherings celebrate renewal beneath petal-strewn skies.</p>
+      </div>
+    </div>
+    <div class="season-card summer">
+      <div class="season-kanji">夏</div>
+      <div class="season-info">
+        <h3>Summer</h3>
+        <p>Lush green mountains meet turquoise seas. Matsuri festivals ignite the night with taiko drums, lanterns, and fireworks reflected in still waters.</p>
+      </div>
+    </div>
+    <div class="season-card autumn">
+      <div class="season-kanji">秋</div>
+      <div class="season-info">
+        <h3>Autumn</h3>
+        <p>Maple leaves transform temple gardens into seas of crimson and gold. The crisp air carries the scent of roasted chestnuts and contemplation.</p>
+      </div>
+    </div>
+    <div class="season-card winter">
+      <div class="season-kanji">冬</div>
+      <div class="season-info">
+        <h3>Winter</h3>
+        <p>Snow-draped landscapes hold a profound stillness. Hot springs steam beneath starlit skies, and snow monkeys bathe in volcanic warmth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2: Culture -->
+<section id="culture">
+  <p class="section-label" style="color: var(--blush);">Explore</p>
+  <h2 class="section-heading section-enter">Culture</h2>
+  <div class="culture-grid">
+    <div class="culture-cell">
+      <div class="culture-kanji">茶</div>
+      <h3>Tea Ceremony</h3>
+      <p>Chanoyu transforms the simple act of preparing tea into a meditative art, where every gesture carries centuries of refined intention.</p>
+    </div>
+    <div class="culture-cell">
+      <div class="culture-kanji">花</div>
+      <h3>Ikebana</h3>
+      <p>The art of arranging flowers — not decoration, but a dialogue between human hands and nature's own asymmetric perfection.</p>
+    </div>
+    <div class="culture-cell">
+      <div class="culture-kanji">能</div>
+      <h3>Noh Theatre</h3>
+      <p>Masked performers move through dream and memory in the world's oldest surviving theatrical tradition, where stillness speaks volumes.</p>
+    </div>
+    <div class="culture-cell">
+      <div class="culture-kanji">侘</div>
+      <h3>Wabi-Sabi</h3>
+      <p>Finding beauty in imperfection and impermanence. A cracked bowl repaired with gold becomes more precious than one that was never broken.</p>
+    </div>
+    <div class="culture-cell">
+      <div class="culture-kanji">折</div>
+      <h3>Origami</h3>
+      <p>A single sheet of paper, no cuts, infinite possibility. Each fold is a meditation — geometry meeting imagination in paper-thin poetry.</p>
+    </div>
+    <div class="culture-cell">
+      <div class="culture-kanji">庭</div>
+      <h3>Zen Gardens</h3>
+      <p>Raked gravel becomes ocean, placed stones become mountains. In the emptiness of karesansui, the mind discovers boundless space.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Places -->
+<section id="places">
+  <div class="places-wrapper">
+    <div class="places-sticky">
+      <p class="section-label">Journey to</p>
+      <div class="place-name-display">
+        <span class="place-name-text">Kyoto</span>
+      </div>
+    </div>
+    <div class="places-scroll">
+      <div class="place-block" data-place="Kyoto">
+        <div class="place-illustration illust-kyoto">
+          <div class="pagoda-top"></div>
+          <div class="pagoda-spire"></div>
+        </div>
+        <h3>Ancient Capital of a Thousand Temples</h3>
+        <p>Kyoto breathes with the weight of a thousand years. Bamboo groves whisper secrets of emperors, while geiko glide through twilight streets of Gion. Every moss-covered stone is a poem the city has been writing for centuries.</p>
+        <a href="#" class="discover-link" onclick="return false">Discover &rarr;</a>
+      </div>
+      <div class="place-block" data-place="Tokyo">
+        <div class="place-illustration illust-tokyo"></div>
+        <h3>Where Tomorrow Is Already Yesterday</h3>
+        <p>Tokyo is a city of beautiful contradictions — ancient shrines tucked between glass towers, tranquil gardens hidden behind neon labyrinths. Here, tradition and innovation don't coexist; they fuse into something entirely new.</p>
+        <a href="#" class="discover-link" onclick="return false">Discover &rarr;</a>
+      </div>
+      <div class="place-block" data-place="Nara">
+        <div class="place-illustration illust-nara"></div>
+        <h3>Where Sacred Deer Roam Free</h3>
+        <p>In Nara, over a thousand deer wander freely among the world's largest wooden building and ancient wisteria gardens. Time moves differently here — measured not in hours but in the slow arc of a deer's bow.</p>
+        <a href="#" class="discover-link" onclick="return false">Discover &rarr;</a>
+      </div>
+      <div class="place-block" data-place="Hakone">
+        <div class="place-illustration illust-hakone"></div>
+        <h3>Gateway to Mount Fuji</h3>
+        <p>Volcanic hot springs curl steam into mountain air while Fuji's perfect cone watches in eternal silence. Hakone is where the earth breathes warmth, and every onsen bath dissolves the boundary between self and landscape.</p>
+        <a href="#" class="discover-link" onclick="return false">Discover &rarr;</a>
+      </div>
+      <div class="place-block" data-place="Okinawa">
+        <div class="place-illustration illust-okinawa"></div>
+        <h3>Japan's Tropical Soul</h3>
+        <p>Turquoise waters lap against coral shores where a distinct Ryukyuan culture thrives. Okinawa is Japan's sun-drenched secret — where longevity is an art form, and the ocean sings in a different key.</p>
+        <a href="#" class="discover-link" onclick="return false">Discover &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: The Spirit (Parallax) -->
+<section id="spirit">
+  <div class="parallax-bg" id="parallax-bg"></div>
+  <div class="torii-gate" id="parallax-mid">
+    <div class="torii-top"></div>
+    <div class="torii-beam"></div>
+    <div class="torii-pillar-left"></div>
+    <div class="torii-pillar-right"></div>
+  </div>
+  <div class="spirit-petals" id="parallax-fg"></div>
+  <div class="spirit-text">
+    <p>Petals fall softly —<br>the river carries them on,<br>still, the tree remembers.</p>
+  </div>
+</section>
+
+<!-- Section 5: Gallery Mosaic -->
+<section id="gallery">
+  <p class="section-label" style="color: var(--blush);">Impressions</p>
+  <h2 class="section-heading section-enter">Gallery</h2>
+  <div class="gallery-grid">
+    <div class="gallery-cell"><span class="gallery-label">Cherry Blossoms</span></div>
+    <div class="gallery-cell"><span class="gallery-label">Mount Fuji</span></div>
+    <div class="gallery-cell"><span class="gallery-label">Bamboo Forest</span></div>
+    <div class="gallery-cell"><span class="gallery-label">Lanterns</span></div>
+    <div class="gallery-cell"><span class="gallery-label">Ocean Waves</span></div>
+    <div class="gallery-cell"><span class="gallery-label">Koi Fish</span></div>
+    <div class="gallery-cell"><span class="gallery-label">Night Sky</span></div>
+    <div class="gallery-cell"><span class="gallery-label">Wisteria</span></div>
+    <div class="gallery-cell"><span class="gallery-label">Bamboo</span></div>
+    <div class="gallery-cell"><span class="gallery-label">Indigo Depths</span></div>
+    <div class="gallery-cell"><span class="gallery-label">Autumn Fire</span></div>
+    <div class="gallery-cell"><span class="gallery-label">Sakura Moon</span></div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <svg class="footer-petal" style="top:2rem;left:2rem;width:40px;height:40px" viewBox="0 0 24 24"><path d="M12 2C8 2 5 6 5 10C5 14 12 22 12 22C12 22 19 14 19 10C19 6 16 2 12 2Z"/></svg>
+  <svg class="footer-petal" style="bottom:3rem;right:3rem;width:30px;height:30px;transform:rotate(45deg)" viewBox="0 0 24 24"><path d="M12 2C8 2 5 6 5 10C5 14 12 22 12 22C12 22 19 14 19 10C19 6 16 2 12 2Z"/></svg>
+  <svg class="footer-petal" style="top:5rem;right:8rem;width:20px;height:20px;transform:rotate(-30deg)" viewBox="0 0 24 24"><path d="M12 2C8 2 5 6 5 10C5 14 12 22 12 22C12 22 19 14 19 10C19 6 16 2 12 2Z"/></svg>
+
+  <div class="footer-kanji">桜</div>
+  <p class="footer-tagline">Mono no aware — the beauty of impermanence.</p>
+
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#seasons">The Seasons</a></li>
+        <li><a href="#culture">Culture</a></li>
+        <li><a href="#places">Places</a></li>
+        <li><a href="#spirit">The Spirit</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Wisdom</h4>
+      <p class="jp-quote">花は桜木、人は武士</p>
+      <p>"Among flowers, the cherry blossom; among men, the warrior." — Japanese proverb on the beauty of living fully, knowing life is brief.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Stay Connected</h4>
+      <p>Receive seasonal reflections and travel inspiration from Japan.</p>
+      <div class="newsletter-field">
+        <input type="email" placeholder="your@email.com" aria-label="Email address">
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 — Crafted with reverence for the fleeting and the eternal.</p>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // ========== CUSTOM CURSOR ==========
+  const cursor = document.getElementById('custom-cursor');
+  let cursorAngle = 0;
+  document.addEventListener('mousemove', function(e) {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    cursorAngle += 2;
+    cursor.querySelector('svg').style.transform = 'rotate(' + (cursorAngle % 360) + 'deg)';
+  });
+
+  // ========== FALLING CHERRY BLOSSOM PETALS ==========
+  const petalPaths = [
+    'M6 0C4 0 0 4 0 7C0 10 3 12 6 12C9 12 12 10 12 7C12 4 8 0 6 0Z',
+    'M5 0C2 1 0 5 1 8C2 11 5 12 8 11C11 10 12 6 10 3C8 0 5 0 5 0Z',
+    'M7 0C4 0 0 3 0 6C0 9 4 13 7 13C10 13 13 9 12 6C11 3 10 0 7 0Z',
+    'M6 0C3 0 0 4 1 8C2 12 6 14 9 12C12 10 13 5 10 2C8 0 6 0 6 0Z'
+  ];
+
+  function createPetals(container, count, isForeground) {
+    const containerEl = typeof container === 'string' ? document.getElementById(container) : container;
+    if (!containerEl) return;
+
+    for (let i = 0; i < count; i++) {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      const size = 8 + Math.random() * 14;
+      const pathIndex = Math.floor(Math.random() * petalPaths.length);
+      const opacity = 0.4 + Math.random() * 0.5;
+      const duration = 6 + Math.random() * 12;
+      const delay = Math.random() * duration;
+      const startX = Math.random() * 100;
+      const drift = 30 + Math.random() * 60;
+      const rotStart = Math.random() * 360;
+
+      svg.setAttribute('viewBox', '0 0 14 14');
+      svg.setAttribute('width', size);
+      svg.setAttribute('height', size);
+      svg.classList.add('petal');
+      svg.style.opacity = opacity;
+      svg.style.left = startX + '%';
+      svg.style.top = '-' + (size + 10) + 'px';
+
+      path.setAttribute('d', petalPaths[pathIndex]);
+      path.setAttribute('fill', isForeground ? 'rgba(253,246,240,0.6)' : '#f4a7b9');
+      svg.appendChild(path);
+
+      svg.dataset.duration = duration;
+      svg.dataset.delay = delay;
+      svg.dataset.drift = drift;
+      svg.dataset.rotStart = rotStart;
+      svg.dataset.startX = startX;
+      svg.dataset.hovered = '0';
+
+      svg.addEventListener('mouseenter', function() {
+        this.dataset.hovered = '1';
+      });
+      svg.addEventListener('mouseleave', function() {
+        this.dataset.hovered = '0';
+      });
+
+      containerEl.appendChild(svg);
+    }
+  }
+
+  createPetals('hero-petals', 65, false);
+  createPetals('parallax-fg', 30, true);
+
+  function animatePetals() {
+    const now = performance.now() / 1000;
+    document.querySelectorAll('.petal').forEach(function(p) {
+      const dur = parseFloat(p.dataset.duration);
+      const del = parseFloat(p.dataset.delay);
+      const drift = parseFloat(p.dataset.drift);
+      const rotStart = parseFloat(p.dataset.rotStart);
+      const startX = parseFloat(p.dataset.startX);
+      const isHovered = p.dataset.hovered === '1';
+
+      const speed = isHovered ? 3 : 1;
+      const t = ((now * speed + del) % dur) / dur;
+
+      const container = p.parentElement;
+      const containerH = container.offsetHeight || window.innerHeight;
+      const containerW = container.offsetWidth || window.innerWidth;
+
+      const y = t * (containerH + 40) - 20;
+      const x = (startX / 100) * containerW + Math.sin(t * Math.PI * 2 + del) * drift;
+      const rot = rotStart + t * 360 * (isHovered ? 3 : 1);
+
+      p.style.transform = 'translate(' + x + 'px, ' + y + 'px) rotate(' + rot + 'deg)';
+      p.style.left = '0';
+      p.style.top = '0';
+    });
+    requestAnimationFrame(animatePetals);
+  }
+  animatePetals();
+
+  // ========== NAVIGATION SCROLL EFFECT ==========
+  const nav = document.getElementById('main-nav');
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  function updateNav() {
+    const scrollY = window.scrollY;
+
+    if (scrollY > 80) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+
+    let current = '';
+    sections.forEach(function(section) {
+      const top = section.offsetTop - 200;
+      if (scrollY >= top) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(function(link) {
+      link.classList.remove('active');
+      if (link.getAttribute('data-section') === current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  // ========== PARALLAX ==========
+  const parallaxBg = document.getElementById('parallax-bg');
+  const parallaxMid = document.getElementById('parallax-mid');
+  const parallaxFg = document.getElementById('parallax-fg');
+  const spiritSection = document.getElementById('spirit');
+
+  function updateParallax() {
+    if (!spiritSection) return;
+    const rect = spiritSection.getBoundingClientRect();
+    const viewH = window.innerHeight;
+
+    if (rect.top < viewH && rect.bottom > 0) {
+      const progress = (viewH - rect.top) / (viewH + rect.height);
+      const bgY = (progress - 0.5) * 80;
+      const midY = (progress - 0.5) * 40;
+      const fgY = (progress - 0.5) * -30;
+
+      parallaxBg.style.transform = 'translateY(' + bgY + 'px)';
+      parallaxMid.style.transform = 'translateX(-50%) translateY(' + midY + 'px)';
+      parallaxFg.style.transform = 'translateY(' + fgY + 'px)';
+    }
+  }
+
+  // ========== PLACES STICKY HEADING ==========
+  const placeBlocks = document.querySelectorAll('.place-block');
+  const placeNameText = document.querySelector('.place-name-text');
+
+  function updatePlaceName() {
+    if (!placeNameText || !placeBlocks.length) return;
+    let activeName = 'Kyoto';
+
+    placeBlocks.forEach(function(block) {
+      const rect = block.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.5) {
+        activeName = block.dataset.place;
+      }
+    });
+
+    if (placeNameText.textContent !== activeName) {
+      placeNameText.style.opacity = '0';
+      placeNameText.style.transform = 'translateY(10px)';
+      setTimeout(function() {
+        placeNameText.textContent = activeName;
+        placeNameText.style.opacity = '1';
+        placeNameText.style.transform = 'translateY(0)';
+      }, 200);
+    }
+  }
+
+  // Combined scroll handler
+  function onScroll() {
+    updateNav();
+    updateParallax();
+    updatePlaceName();
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ========== INTERSECTION OBSERVER ==========
+  const observerOptions = { threshold: 0.15 };
+
+  // General section entrance
+  const sectionObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.section-enter').forEach(function(el) {
+    sectionObserver.observe(el);
+  });
+
+  // Culture cells - staggered entrance
+  const cultureObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const idx = Array.from(entry.target.parentElement.children).indexOf(entry.target);
+        setTimeout(function() {
+          entry.target.classList.add('visible');
+        }, idx * 120);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.culture-cell').forEach(function(cell) {
+    cultureObserver.observe(cell);
+  });
+
+  // Gallery cells - staggered entrance
+  const galleryObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const idx = Array.from(entry.target.parentElement.children).indexOf(entry.target);
+        setTimeout(function() {
+          entry.target.classList.add('visible');
+        }, idx * 80);
+        entry.target.style.transitionDelay = (idx * 0.08) + 's';
+        entry.target.style.transitionDuration = '0.6s';
+        entry.target.style.transitionProperty = 'opacity, transform';
+        entry.target.style.transitionTimingFunction = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      }
+    });
+  }, { threshold: 0.05 });
+
+  document.querySelectorAll('.gallery-cell').forEach(function(cell) {
+    galleryObserver.observe(cell);
+  });
+
+  // ========== SMOOTH SCROLL ==========
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
